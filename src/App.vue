@@ -3,8 +3,8 @@
   <view class="container">
     <!-- <Resume></Resume> -->
     <Input class="input-top"></Input>
-    <!-- <InputBaseInfo></InputBaseInfo> -->
-    <InputPersonInfo></InputPersonInfo>
+    <!-- <InputPersonInfo></InputPersonInfo> -->
+    <InputJobInfo></InputJobInfo>
   </view>
 </template>
 <script lang="ts">
@@ -12,13 +12,15 @@ import Resume from "./Resume.vue"
 import Input from "./Input.vue";
 import InputBaseInfo from "./InputBaseInfo.vue";
 import InputPersonInfo from "./InputPersonInfo.vue";
+import InputJobInfo from "./InputJobInfo.vue";
 import { Component } from "vue";
 export default {
   components: {
     Resume,
     Input,
     InputBaseInfo,
-    InputPersonInfo
+    InputPersonInfo,
+    InputJobInfo,
   }
 }
 
