@@ -47,13 +47,17 @@
 
        </view>
        <el-input v-model="formInline.detail" class="detail" :autosize="{ minRows: 6, maxRows: 6 }" type = "textarea"/>
+       <view style="width: 1104px;">
+        <view class="add-btn"><el-icon :size="14" color="rgb(255, 255, 255)" style="margin-right: 5px;"><Plus /></el-icon> 新增一条 教育背景</view>
+       </view>
+      
+       
     </view>
-
 </template>
 
 <script ang="ts" setup>
 import { reactive } from 'vue'
-import { View, Warning } from '@element-plus/icons-vue'
+import { View, Warning, Plus } from '@element-plus/icons-vue'
 const formInline = reactive({
   school: '',
   major: '',
@@ -151,6 +155,17 @@ const educations = [
       padding: 12px 15px;
       max-height: 130px;
       min-height: 130px;
+    }
+    .add-btn {
+      background-color: rgb(19, 216, 167);
+      width: 176px;
+      height: 40px;
+      color: white;
+      margin: 12px 0;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
 :deep(.el-input__wrapper){
