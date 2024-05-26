@@ -52,7 +52,13 @@
 
        </view>
        <el-input v-model="model.detail" class="detail" :autosize="{ minRows: 6, maxRows: 6 }" type = "textarea" @change="update"/>
+    <view class="edit-bar">
+      <view class="edit-btn up-btn" >上移</view>
+      <view class="edit-btn down-btn">下移</view>
+      <view class="edit-btn delete-btn">删除</view>
+      <view class="edit-btn ai-btn">AI撰写/优化</view>
     </view>
+   </view>
 </template>
 <script lang="ts">
 import { reactive, ref } from 'vue'
@@ -62,30 +68,6 @@ import {EducationModel} from './EducationModel'
 export default {
   name: 'EducationInfo',
   props: {
-    // school: {
-    //   type: String,
-    //   default: ''
-    // },
-    // major: {
-    //   type: String,
-    //   default: ''
-    // },
-    // startDate: {
-    //   type: String,
-    //   default: ''
-    // },
-    // endDate: {
-    //   type: String,
-    //   default: ''
-    // },
-    // education: {
-    //   type: String,
-    //   default: ''
-    // },
-    // detail: {
-    //   type: String,
-    //   default: '专业成绩：GPA 3.66/4 （专业前5%）\n主修课程：计算机系统结构、计算机网络、C语言、数据结构、操作系统、数据库原理等。'
-    // },
     model: {
       type: EducationModel,
       default: {}
@@ -194,12 +176,58 @@ export default {
             // }
         }
     }
-  .detail {
-    width: 1104px;
-    height: 165px;
-    padding: 0px 15px;
-  }
-  :deep(.el-textarea__inner)  {
-   margin-bottom: 0px;
-  }
+.detail {
+  width: 1104px;
+  height: 165px;
+  padding: 0px 15px;
+}
+.edit-bar {
+  width: 1104px;
+  height: 30px;
+
+   display: flex;
+   flex-direction: row;
+   flex: 1;
+   .edit-btn {
+    width: 98px;
+    height: 28px;
+    border-style: solid;
+    border-radius: 14px;
+    border-width: 1px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+   }
+   .up-btn {
+     color: #13dba7;
+     border-color: #13dba7;
+   }
+   .up-btn:hover {
+     background-color: #13dba7;
+     color: white;
+   }
+   .down-btn {
+    color: #13dba7;
+    border-color: #13dba7;
+   }
+   .down-btn:hover {
+     background-color: #13dba7;
+     color: white;
+   }
+   .delete-btn {
+    color: #ff755d;
+    border-color: #ff755d;
+   }
+   .delete-btn:hover {
+     background-color: #ff755d;
+     color: white;
+   }
+   .ai-btn {
+    color: white;
+    background-color: #13dba7;
+   }
+}
 </style>
