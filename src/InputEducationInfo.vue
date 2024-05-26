@@ -1,30 +1,37 @@
 <template>
     <view class="container">
-      <EducationInfo :model="model" ></EducationInfo>
+      <EducationInfo :model="model" v-for="model in models"></EducationInfo>
        <view style="width: 1104px;">
-        <view class="add-btn" @click="uplaod"><el-icon :size="14" color="rgb(255, 255, 255)" style="margin-right: 5px;"><Plus /></el-icon> 新增一条 教育背景</view>
+        <view class="add-btn" @click="addItem"><el-icon :size="14" color="rgb(255, 255, 255)" style="margin-right: 5px;"><Plus /></el-icon> 新增一条 教育背景</view>
        </view>
     </view>
 </template>
 
 <script lang="ts">
 import EducationInfo from "./components/educationInfo.vue";
+import { EducationModel } from './components/EducationModel'
 import { View, Warning, Plus } from '@element-plus/icons-vue'
 import { Component } from "vue";
 export default {
+
   components: {
     EducationInfo,
     Plus
   },
   data() {
     return {
-      model: {}
+      models: []
     }
   },
 
   methods: {
      uplaod() {
       console.log("EducationModel--detail2", this.model.detail)
+     },
+
+     addItem() {
+      let model = new EducationModel()
+       this.models.push(model)
      }
   }
 }
