@@ -72,7 +72,6 @@ export default {
       type: EducationModel,
       default: {}
     }
-
   },
   emits: ['update: model', 'upAction','downAction','deleteAction','aiAction'],
   methods: {
@@ -182,11 +181,6 @@ export default {
                 width: 180px;
                 height: 32px;
             }
-            // .date-picker {
-            //   width: 100px;
-            //   height: 32px;
-            //   background-color: greenyellow;
-            // }
         }
     }
 .detail {
