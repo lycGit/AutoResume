@@ -237,8 +237,9 @@ const educations = [
   .detail {
     width: 1104px;
     height: 165px;
-    padding: 12px 15px;
-    max-height: 165px;
-    min-height: 165px;
+    padding: 0px 15px;
+  }
+  :deep(.el-textarea__inner)  {
+   margin-bottom: 0px;
   }
 </style>

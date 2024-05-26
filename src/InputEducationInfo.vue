@@ -1,6 +1,6 @@
 <template>
     <view class="container">
-      <EducationInfo :model="model"></EducationInfo>
+      <EducationInfo :model="model" ></EducationInfo>
        <view style="width: 1104px;">
         <view class="add-btn" @click="uplaod"><el-icon :size="14" color="rgb(255, 255, 255)" style="margin-right: 5px;"><Plus /></el-icon> 新增一条 教育背景</view>
        </view>
@@ -36,7 +36,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 380px;
+    justify-content: start;
 }
 
     .add-btn {
