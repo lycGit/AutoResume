@@ -4,7 +4,8 @@
     <Input class="input-top"></Input>
     <!-- <InputPersonInfo></InputPersonInfo> -->
     <!-- <InputJobInfo></InputJobInfo> -->
-    <InputEducationInfo></InputEducationInfo>
+    <!-- <InputEducationInfo></InputEducationInfo> -->
+    <InputProgramInfo></InputProgramInfo>
   </view>
 </template>
 <script lang="ts">
@@ -14,6 +15,7 @@ import InputBaseInfo from "./InputBaseInfo.vue";
 import InputPersonInfo from "./InputPersonInfo.vue";
 import InputJobInfo from "./InputJobInfo.vue";
 import InputEducationInfo from "./InputEducationInfo.vue";
+import InputProgramInfo from "./InputProgramInfo.vue";
 import { Component } from "vue";
 export default {
   components: {
@@ -23,6 +25,7 @@ export default {
     InputPersonInfo,
     InputJobInfo,
     InputEducationInfo,
+    InputProgramInfo,
   }
 }
 
