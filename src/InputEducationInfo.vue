@@ -1,6 +1,11 @@
 <template>
     <view class="container">
-      <EducationInfo :model="model" v-for="model in models"></EducationInfo>
+      <EducationInfo :model="model" v-for="(model ,index) in models"
+      @upAction="upAction"
+      @downAction="downAction"
+      @deleteAction="deleteAction"
+      @aiAction="aiAction"
+      ></EducationInfo>
        <view style="width: 1104px;">
         <view class="add-btn" @click="addItem"><el-icon :size="14" color="rgb(255, 255, 255)" style="margin-right: 5px;"><Plus /></el-icon> 新增一条 教育背景</view>
        </view>
@@ -8,6 +13,7 @@
 </template>
 
 <script lang="ts">
+import { th } from "element-plus/es/locale";
 import EducationInfo from "./components/educationInfo.vue";
 import { EducationModel } from './components/EducationModel'
 import { View, Warning, Plus } from '@element-plus/icons-vue'
@@ -30,8 +36,41 @@ export default {
      },
 
      addItem() {
-      let model = new EducationModel()
+       let model = new EducationModel()
+       model.index = this.models.length
        this.models.push(model)
+     },
+
+     upAction(index) {
+      console.log("upAction1--", index)
+      if (index > 0) {
+        const newIndex = index - 1;
+        this.models.splice(newIndex, 0, ...this.models.splice(index, 1));
+      }
+      this.updateModelIndex()
+     },
+     downAction(index) {
+      console.log("downAction--", index)
+      if (index < this.models.length - 1) {
+        const newIndex = index + 1;
+        this.models.splice(newIndex, 0, ...this.models.splice(index, 1));
+      }
+      console.log("downAction")
+      this.updateModelIndex()
+     },
+     deleteAction(index) {
+      console.log("deleteAction")
+      this.models.splice(index, 1)
+      this.updateModelIndex()
+     },
+     aiAction(index) {
+      console.log("aiAction")
+     },
+
+     updateModelIndex() {
+       this.models.forEach((model, idx, array) => {
+        model.index = idx
+       });
      }
   }
 }

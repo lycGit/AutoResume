@@ -5,4 +5,5 @@ export class EducationModel {
     endDate?: string;
     education?: string;
     detail?: string;
+    index?: number;
 }

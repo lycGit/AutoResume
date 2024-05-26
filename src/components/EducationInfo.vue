@@ -53,10 +53,10 @@
        </view>
        <el-input v-model="model.detail" class="detail" :autosize="{ minRows: 6, maxRows: 6 }" type = "textarea" @change="update"/>
     <view class="edit-bar">
-      <view class="edit-btn up-btn" >上移</view>
-      <view class="edit-btn down-btn">下移</view>
-      <view class="edit-btn delete-btn">删除</view>
-      <view class="edit-btn ai-btn">AI撰写/优化</view>
+      <view class="edit-btn up-btn" @click="upAction">上移</view>
+      <view class="edit-btn down-btn" @click="downAction">下移</view>
+      <view class="edit-btn delete-btn" @click="deleteAction">删除</view>
+      <view class="edit-btn ai-btn" @click="aiAction">AI撰写/优化</view>
     </view>
    </view>
 </template>
@@ -74,12 +74,25 @@ export default {
     }
 
   },
-  emits: ['update: model'],
+  emits: ['update: model', 'upAction','downAction','deleteAction','aiAction'],
   methods: {
     update() {
       console.log("EducationModel--detail1", this.model.detail)
       this.$emit('update: model', this.model)
-    }
+    },
+    upAction() {
+      this.$emit('upAction', this.model.index)
+    },
+    downAction() {
+      this.$emit('downAction', this.model.index)
+    },
+    deleteAction() {
+      this.$emit('deleteAction', this.model.index)
+    },
+    aiAction() {
+      this.$emit('aiAction', this.model.index)
+    },
+
   },
 
   data() {
