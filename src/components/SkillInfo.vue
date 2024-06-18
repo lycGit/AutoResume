@@ -3,7 +3,7 @@
         <el-input v-model="model.detail" class="detail" :autosize="{ minRows: 6, maxRows: 6 }" type = "textarea" @change="update"/>
         <view class="select-area">
             <view class="select-items">
-                <view class="item" v-for="(item, index) in model.items"  @click="clickAction(index)" :style="{backgroundColor: this.selectIndex === index ? '#13dba7' : '#ffffff', color: this.selectIndex === index ? '#ffffff' : '#333', borderColor: this.selectIndex === index ? '#13dba7' : '#333'}"> {{ item }}</view>
+                <view class="item" v-for="(item, index) in model.items"  @click="clickAction(index)" :style="{backgroundColor: item.isSelect ? '#13dba7' : '#ffffff', color: item.isSelect ? '#ffffff' : '#333', borderColor: item.isSelect ? '#13dba7' : '#333'}"> {{ item.name }}</view>
             </view>
             <view class="input-row">
                 <el-input class="input-content"
@@ -34,7 +34,7 @@
 
 </template>
 <script lang="ts">
-import {SkillModel} from './SkillModel'
+import {SkillModel,SkillItemModel} from './SkillModel'
 import { Plus } from '@element-plus/icons-vue'
 export default {
   name: 'SkillInfo',
@@ -52,6 +52,8 @@ export default {
     }
 
   },
+  // displayItems: SkillItemModel[] = []
+
   data() {
     return {
         selectIndex: -1,
@@ -88,20 +90,22 @@ export default {
 
     },
     clickAction(index) {
-      this.isActive = true;
+      let item = this.model.items[index]
       if (this.selectIndex === index) {
         this.selectIndex = -1;
-        let item = this.model.items[index]
+        item.isSelect = false
         let deleteIndex = this.model.items.indexOf(item)
         if (deleteIndex > -1) {
             this.models.displayItems.splice(deleteIndex, 1)
         }
       } else {
+        item.isSelect = true
         this.selectIndex = index;
         this.model.displayItems.push(this.model.items[index])
       }
 
     },
+
     addItem() {
         if (!this.model.displayItems) {
             this.model.displayItems = []
