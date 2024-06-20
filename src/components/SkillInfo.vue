@@ -7,30 +7,34 @@
             </view>
             <view class="input-row">
                 <el-input class="input-content"
-                v-model="model.name"
+                v-model="skillName"
                 style="width: 180px"
                 placeholder="请输入自定义名称"
                 @change="update"
                 />
-                <view class="add-btn" @click="addItem"><el-icon :size="14" color="rgb(255, 255, 255)" style="margin-right: 5px;"><Plus/></el-icon> 添加自定义技能特长</view>
+                <view class="add-btn" @click="addItem"><el-icon :size="14" color="'#13dba7'" style="margin-right: 5px;"><Plus/></el-icon> 添加自定义技能特长</view>
             </view>
             <view class="display-area">
-                <view class="display-item" v-for=" item in model.displayItems">
-                    <span class="select-title" >{{ item }}</span> 
-                    <el-select v-model="model.name"  class="m-2" style="width: 120px" placeholder="请选择">
-                        <el-option
-                        v-for="item in levels"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value"
-                        @change="update"
-                    />
-                    </el-select>
+                <view class="display-item" v-for=" (item, index) in displayItems">
+                    <span class="select-title" >{{ item.name }}</span> 
+                    <span class="ver-space"></span>
+                    <view class="select-level">
+                      <el-select v-model="item.level"  class="m-2" style="width: 120px" placeholder="请选择">
+                          <el-option
+                          v-for="item in levels"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"
+                          @change="update"
+                      />
+                      </el-select>
+                      <span class="hor-space"></span>
+                      <el-icon class="level-delete" :size="18" color="rgb(255, 0, 0)" @click="deleteItem(index)"><Remove /></el-icon>
+                    </view>
                 </view>
+              </view>   
             </view>
         </view>
-
-    </view>
 
 </template>
 <script lang="ts">
@@ -52,7 +56,7 @@ export default {
     }
 
   },
-  // displayItems: SkillItemModel[] = []
+  
 
   data() {
     return {
@@ -78,40 +82,40 @@ export default {
           value: '4',
           label: '精通',
         },
-    ]
+         ],
+         displayItems: [],
+         skillName: ''
+
 
     }
   },
+
   emits: ['update: model'],
   methods: {
     update() {
-      console.log("SkillModel--detail", this.model.detail)
       this.$emit('update: model', this.model)
 
     },
     clickAction(index) {
       let item = this.model.items[index]
-      if (this.selectIndex === index) {
-        this.selectIndex = -1;
-        item.isSelect = false
-        let deleteIndex = this.model.items.indexOf(item)
-        if (deleteIndex > -1) {
-            this.models.displayItems.splice(deleteIndex, 1)
-        }
+      item.isSelect = !item.isSelect
+      if (item.isSelect) {
+        this.displayItems.push(item)
       } else {
-        item.isSelect = true
-        this.selectIndex = index;
-        this.model.displayItems.push(this.model.items[index])
+        let deleteIndex = this.displayItems.indexOf(item)
+        this.displayItems.splice(deleteIndex, 1)
       }
-
     },
 
     addItem() {
-        if (!this.model.displayItems) {
-            this.model.displayItems = []
-        }
-        this.model.displayItems.push(this.model.name)
+        let item = new SkillItemModel()
+        item.name = this.skillName
+        this.displayItems.push(item)
     },
+
+    deleteItem(index: number) {
+      this.displayItems.splice(index, 1)
+    }
 
   }
 }
@@ -180,6 +184,7 @@ export default {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 20px;
     .display-item {
         display: flex;
         flex-direction: column;
@@ -189,6 +194,21 @@ export default {
             color: #333;
             font-size: 12px;
             font-weight: bold;
+            margin-bottom: 200rpx;
+        }
+        .ver-space {
+          height: 10px;
+        }
+        .select-level {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          .hor-space {
+            width: 15px;
+          }
+          .level-delete {
+            padding-left: 30rpx;
+          }
         }
     }
 }

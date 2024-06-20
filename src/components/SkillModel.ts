@@ -7,5 +7,6 @@ export class SkillModel {
 
 export class SkillItemModel {
     name?: string;
+    level?: number;
     isSelect?: boolean;
 }
