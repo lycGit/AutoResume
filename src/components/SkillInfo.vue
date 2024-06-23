@@ -9,10 +9,11 @@
                 <el-input class="input-content"
                 v-model="skillName"
                 style="width: 180px"
-                placeholder="请输入自定义名称"
+                :placeholder="btnHint"
+                clearable
                 @change="update"
                 />
-                <view class="add-btn" @click="addItem"><el-icon :size="14" color="'#13dba7'" style="margin-right: 5px;"><Plus/></el-icon> 添加自定义技能特长</view>
+                <view class="add-btn" @click="addItem"><el-icon :size="14" color="'#13dba7'" style="margin-right: 5px;"><Plus/></el-icon> {{ btnTitle }}</view>
             </view>
             <view class="display-area">
                 <view class="display-item" v-for=" (item, index) in displayItems">
@@ -53,7 +54,15 @@ export default {
     level: {
         type: String,
         default: '0'
-    }
+    },
+    btnTitle: {
+      type: String,
+      default: '添加自定义技能特长'
+    },
+    btnHint: {
+      type: String,
+      default: '请输入自定义名称'
+    },
 
   },
   
