@@ -10,7 +10,6 @@ import { SkillItemModel } from './components/SkillModel';
 export default {
     components: {
         SkillInfo,
-        
     },
     data() {
         const model1 = new SkillItemModel() 
