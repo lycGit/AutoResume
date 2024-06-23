@@ -8,7 +8,8 @@
     <!-- <InputProgramInfo></InputProgramInfo> -->
     <!-- <InputSkillInfo></InputSkillInfo> -->
     <!-- <InputHonorInfo></InputHonorInfo> -->
-    <InputMyIntroduction></InputMyIntroduction>
+    <!-- <InputMyIntroduction></InputMyIntroduction> -->
+    <InputInterestInfo></InputInterestInfo>
   </view>
 </template>
 <script lang="ts">
@@ -22,7 +23,9 @@ import InputProgramInfo from "./InputProgramInfo.vue";
 import InputSkillInfo from "./InputSkillInfo.vue";
 import InputHonorInfo from "./InputHonorInfo.vue";
 import InputMyIntroduction from "./InputMyIntroduction.vue";
+import InputInterestInfo from "./InputInterestInfo.vue";
 import { Component } from "vue";
+
 export default {
   components: {
     Resume,
@@ -35,6 +38,7 @@ export default {
     InputSkillInfo,
     InputHonorInfo,
     InputMyIntroduction,
+    InputInterestInfo
   }
 }
 
