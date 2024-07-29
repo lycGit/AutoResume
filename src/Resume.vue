@@ -199,8 +199,8 @@
       flex-direction: column;
       align-items: center;
       .resume_box {
-        width: 820px;
-        height: 1150px;
+        width: 23.5cm;
+        min-height: 29.7cm;
         margin-top: 20px;
         margin-bottom: 20px;
         background-color: white;
