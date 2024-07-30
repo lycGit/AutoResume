@@ -4,6 +4,7 @@
         <Resume class="resume"></Resume>
     </view>
     <view class="edit-area">
+      <img class="expand-btn" :src="this.expand ? '/images/expand.png' : '/images/shink.png'"></img>
       <Input class="input-top"></Input>
         <view class="edit-view">
             <InputPersonInfo></InputPersonInfo>
@@ -32,6 +33,7 @@ import InputSkillInfo from "./InputSkillInfo.vue";
 import InputHonorInfo from "./InputHonorInfo.vue";
 import InputMyIntroduction from "./InputMyIntroduction.vue";
 import InputInterestInfo from "./InputInterestInfo.vue";
+import { reactive } from 'vue'
 export default {
   name: 'EditResume',
   components: {
@@ -46,7 +48,14 @@ export default {
     InputHonorInfo,
     InputMyIntroduction,
     InputInterestInfo
+  },
+  data() {
+      let expand = false
+      return {
+        expand,
+      }
   }
+
 }
 </script>
 <style lang="less" scoped>
@@ -73,7 +82,16 @@ export default {
     flex-direction: column;
     align-items: center;
     background-color: white;
-    box-shadow: -10px 10px 5px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px -5px 3px 1px rgba(0, 0, 0, 0.05);
+    .expand-btn {
+      margin-top: -40px;
+      width: 100px;
+      height: 45px;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+
+
+    }
     .input-top {
       margin-top: 15px;
     }
