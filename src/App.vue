@@ -1,16 +1,18 @@
 <template>
-  <view class="container">
-    <!-- <Resume></Resume> -->
+  <!-- <view class="container"> -->
+    <!-- <Resume></Resume>
     <Input class="input-top"></Input>
-    <!-- <InputPersonInfo></InputPersonInfo> -->
+    <InputPersonInfo></InputPersonInfo> -->
     <!-- <InputJobInfo></InputJobInfo> -->
     <!-- <InputEducationInfo></InputEducationInfo> -->
     <!-- <InputProgramInfo></InputProgramInfo> -->
     <!-- <InputSkillInfo></InputSkillInfo> -->
     <!-- <InputHonorInfo></InputHonorInfo> -->
     <!-- <InputMyIntroduction></InputMyIntroduction> -->
-    <InputInterestInfo></InputInterestInfo>
-  </view>
+    <!-- <InputInterestInfo></InputInterestInfo> -->
+  <!-- </view> -->
+  <EditResume></EditResume>
+   
 </template>
 <script lang="ts">
 import Resume from "./Resume.vue"
@@ -24,6 +26,7 @@ import InputSkillInfo from "./InputSkillInfo.vue";
 import InputHonorInfo from "./InputHonorInfo.vue";
 import InputMyIntroduction from "./InputMyIntroduction.vue";
 import InputInterestInfo from "./InputInterestInfo.vue";
+import EditResume from './EditResume.vue'
 import { Component } from "vue";
 
 export default {
@@ -38,7 +41,8 @@ export default {
     InputSkillInfo,
     InputHonorInfo,
     InputMyIntroduction,
-    InputInterestInfo
+    InputInterestInfo,
+    EditResume
   }
 }
 

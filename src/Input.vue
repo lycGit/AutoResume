@@ -57,7 +57,7 @@ export default {
     justify-content: center;
     .edit_box {
         width: 1200px;
-        height: 435px;
+        height: 30px;
         .edit_top {
             display: flex;
             flex-direction: column;
