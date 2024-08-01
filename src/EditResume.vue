@@ -6,13 +6,13 @@
     <view class="resume-area">
         <Resume class="resume"></Resume>
     </view>
-    <!-- <view class="edit-area">
-      <img class="expand-btn" :src="this.expand ? '/images/expand.png' : '/images/shink.png'"></img>
+    <view class="edit-area">
+      <img class="expand-btn" :src="expand ? '/images/shink.png' : '/images/expand.png'" @click="displayEditBar"></img>
       <Input class="input-top"></Input>
-        <view class="edit-view">
-            <InputPersonInfo></InputPersonInfo>
+        <view class="edit-view" v-if="expand">
+            <InputPersonInfo ></InputPersonInfo>
         </view>
-    </view> -->
+    </view>
 
 
     <!-- <InputJobInfo></InputJobInfo> -->
@@ -57,6 +57,12 @@ export default {
       return {
         expand,
       }
+  },
+
+  methods: {
+      displayEditBar() {
+        this.expand = !this.expand
+      } 
   }
 
 }
@@ -76,6 +82,7 @@ export default {
     display: flex;
     align-items: center;
     background-color: white;
+    box-shadow: 0px 5px 3px 1px rgba(0, 0, 0, 0.1);
     .logo {
       margin-left: 180px;
       width: 156px;
@@ -83,14 +90,10 @@ export default {
     }
   }
   .resume-area{
-    position: absolute;
-    top:0;
-    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
-
   }
   .edit-area {
     position: fixed;

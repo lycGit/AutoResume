@@ -195,13 +195,14 @@
   <style lang="less" scoped>
      .resume_container {
       background-color: rgb(118, 127, 149);
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       .resume_box {
         width: 23.5cm;
         min-height: 29.7cm;
-        margin-top: 20px;
+        margin-top: 120px;
         margin-bottom: 20px;
         background-color: white;
         .basic_info_box {
