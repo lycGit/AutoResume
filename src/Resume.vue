@@ -196,6 +196,7 @@
      .resume_container {
       background-color: rgb(118, 127, 149);
       width: 100%;
+      min-height: 60cm;
       display: flex;
       flex-direction: column;
       align-items: center;
