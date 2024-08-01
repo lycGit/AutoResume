@@ -1,15 +1,18 @@
 <template>
   <view class="container">
+    <view class="resume-header">
+      <img class="logo" src="https://www.qmjianli.com/qmjl.jpg">
+    </view>
     <view class="resume-area">
         <Resume class="resume"></Resume>
     </view>
-    <view class="edit-area">
+    <!-- <view class="edit-area">
       <img class="expand-btn" :src="this.expand ? '/images/expand.png' : '/images/shink.png'"></img>
       <Input class="input-top"></Input>
         <view class="edit-view">
             <InputPersonInfo></InputPersonInfo>
         </view>
-    </view>
+    </view> -->
 
 
     <!-- <InputJobInfo></InputJobInfo> -->
@@ -63,6 +66,22 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
+  .resume-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 66px;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    .logo {
+      margin-left: 180px;
+      width: 156px;
+      height: 32px;
+    }
+  }
   .resume-area{
     position: absolute;
     top:0;
@@ -89,8 +108,6 @@ export default {
       height: 45px;
       border-top-left-radius: 50px;
       border-top-right-radius: 50px;
-
-
     }
     .input-top {
       margin-top: 15px;
