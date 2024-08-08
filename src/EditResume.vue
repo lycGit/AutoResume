@@ -3,7 +3,7 @@
     <view class="resume-header">
       <img class="logo" src="https://www.qmjianli.com/qmjl.jpg">
     </view>
-    <view class="resume-area">
+    <!-- <view class="resume-area">
         <Resume class="resume"></Resume>
     </view>
     <view class="edit-area">
@@ -12,7 +12,15 @@
         <view class="edit-view" v-if="expand">
             <InputPersonInfo ></InputPersonInfo>
         </view>
+    </view> -->
+
+    <view class="grid-content">
+      <grid-item v-for="(item, index) in [1,2,3,4,5,6]" :key="index" :data="item">
+        <ResumeMode class="resume-mode"></ResumeMode>
+      </grid-item>
     </view>
+
+
 
 
     <!-- <InputJobInfo></InputJobInfo> -->
@@ -36,6 +44,7 @@ import InputSkillInfo from "./InputSkillInfo.vue";
 import InputHonorInfo from "./InputHonorInfo.vue";
 import InputMyIntroduction from "./InputMyIntroduction.vue";
 import InputInterestInfo from "./InputInterestInfo.vue";
+import ResumeMode from "./ResumeMode.vue"
 import { reactive } from 'vue'
 export default {
   name: 'EditResume',
@@ -50,7 +59,8 @@ export default {
     InputSkillInfo,
     InputHonorInfo,
     InputMyIntroduction,
-    InputInterestInfo
+    InputInterestInfo,
+    ResumeMode
   },
   data() {
       let expand = false
@@ -119,7 +129,18 @@ export default {
       margin-bottom: 60px;
     }
   }
-
+  .grid-content {
+    display: grid;
+    // grid-auto-rows: minmax(1px, 1px, 1px);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns:repeat(auto-fill, 358px);
+    // overflow: auto;
+    column-gap: 30px;
+    row-gap:60px;
+    width: 1134px;
+    height: 1000px;
+    background-color: yellow;
+  }
 
 }
 </style>
